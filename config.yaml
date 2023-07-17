@@ -1,0 +1,42 @@
+experiment: "experiment_name"
+
+data:
+  train_root: "/data/images/train/"
+  val_root: "/data/images/val/"
+  batch_size: 128
+  crop_size: 224
+
+  num_workers: 6
+  use_horizontal_flip: false
+  use_vertical_flip: false
+
+optimization:
+  epochs: 100
+  start_lr: !!float 2e-4
+  lr: !!float 1e-3
+  final_lr: !!float 1e-6
+  warmup: 40
+  ipe_scale: 1.0
+  use_float16: true
+
+model:
+  architecture: "simple_cnn"
+  args:
+    num_classes: 4
+    convolutions:
+      - [64, 1]
+      - [64, 3]
+      - [128, 5]
+      - [128, 5]
+      - [256, 5]
+      - [512, 5]
+
+    pooling: 'max'
+    last_pool: false
+    linears:
+      - 256
+      - 128
+
+logging:
+  log_frequency: 10
+  log_file:
