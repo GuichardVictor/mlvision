@@ -1,5 +1,6 @@
 import torch
 
+
 class AverageMeter:
     def __init__(self):
         self.reset()
@@ -45,11 +46,12 @@ class CSVLogger(object):
                 end = "," if i < len(argv) else "\n"
                 print(tv[0] % tv[1], end=end, file=f)
 
+
 def gpu_timer(closure, log_timings=True):
-    """ Helper to time gpu-time to execute closure() """
+    """Helper to time gpu-time to execute closure()"""
     log_timings = log_timings and torch.cuda.is_available()
 
-    elapsed_time = -1.
+    elapsed_time = -1.0
     if log_timings:
         start = torch.cuda.Event(enable_timing=True)
         end = torch.cuda.Event(enable_timing=True)

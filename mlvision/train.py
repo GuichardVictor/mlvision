@@ -76,7 +76,6 @@ def train_loop(
 
     for epoch in range(start_epoch, num_epochs):
         for stage in ["train", "val"]:
-
             loss_meter = AverageMeter()
             time_meter = AverageMeter()
 
@@ -108,8 +107,7 @@ def train_loop(
                         new_lr = 0.0
 
                     with torch.inference_mode(not is_train()), torch.autocast(
-                        device_type=device.type,
-                        enabled=autocast_enabled()
+                        device_type=device.type, enabled=autocast_enabled()
                     ):
                         loss = compute_loss()
 

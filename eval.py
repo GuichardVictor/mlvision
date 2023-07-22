@@ -1,6 +1,5 @@
 import argparse
 import yaml
-import multiprocessing as mp
 
 from mlvision.models import build_model
 import torch
