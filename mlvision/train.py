@@ -11,7 +11,7 @@ import mlvision.distributed
 from mlvision.distributed import AllReduce
 from mlvision.logger import AverageMeter, CSVLogger, gpu_timer
 
-from mlvision.augmentations import build_transforms
+from mlvision.augmentation import build_transforms
 from mlvision.datasets import init_dataloaders
 from mlvision.optim import init_optimizers
 from mlvision.models import build_model
